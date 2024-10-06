@@ -1,7 +1,7 @@
+import 'package:book_logging_app/view/collection_view/widgets/add_book_bottomsheet.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/contants/colors.dart';
-import 'widgets/review_bottom_sheet.dart';
 
 class CollectionView extends StatelessWidget {
   const CollectionView({super.key});
@@ -37,7 +37,7 @@ class CollectionView extends StatelessWidget {
                   padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom,
                   ),
-                  child: const ReviewBottomaSheet(),
+                  child: const AddBookBottomSheet(),
                 );
               },
             );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import 'common/provider/app_provider.dart';
 import 'common/routes/routes.dart';
 import 'common/routes/routes_name.dart';
 
@@ -13,16 +15,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Book Loging app',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 32, 81, 229)),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: HProviders.providers,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Book Loging app',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 32, 81, 229)),
+          useMaterial3: true,
+        ),
+        initialRoute: RoutesName.homeview,
+        onGenerateRoute: Routes.generateRoute,
       ),
-      initialRoute: RoutesName.homeview,
-      onGenerateRoute: Routes.generateRoute,
     );
   }
 }
