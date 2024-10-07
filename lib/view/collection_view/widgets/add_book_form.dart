@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../common/widgets/button.dart';
+import '../../../common/widgets/Buttons/elevated_button.dart';
 import '../../../controller/add_book_controller.dart';
 import '../../../data/model/book_model.dart';
 import '../../../data/model/category_model.dart';
@@ -93,6 +93,7 @@ class AddBookForm extends StatelessWidget {
               isPadding: false,
               onPressed: () {
                 controller.saveBook();
+                Navigator.pop(context);
               },
             ),
           ],

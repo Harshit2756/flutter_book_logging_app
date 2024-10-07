@@ -15,9 +15,11 @@ class HSizes {
   static const double xl = 32.0;
 
   /// Font sizes
-  static const double fontSizeSm = 14.0;
-  static const double fontSizeMd = 16.0;
-  static const double fontSizeLg = 18.0;
+  static const double textSize12 = 12.0;
+  static const double textSize14 = 14.0;
+  static const double textSize16 = 16.0;
+  static const double textSize18 = 18.0;
+  static const double textSize20 = 20.0;
 
   /// Default spacing between sections
   static const double defaultSpace = 24.0;

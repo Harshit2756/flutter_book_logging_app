@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../common/routes/routes_name.dart';
-import '../../common/widgets/button.dart';
+import '../../common/widgets/Buttons/elevated_button.dart';
 import '../../utils/formatters/formatter.dart';
 import 'widgets/app_bar.dart';
 import 'widgets/collection_card.dart';

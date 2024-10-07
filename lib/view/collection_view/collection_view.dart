@@ -1,7 +1,6 @@
-import 'package:book_logging_app/view/collection_view/widgets/add_book_bottomsheet.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/contants/colors.dart';
+import 'widgets/book_card.dart';
 
 class CollectionView extends StatelessWidget {
   const CollectionView({super.key});
@@ -19,30 +18,19 @@ class CollectionView extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: TextButton.icon(
-          icon: const Icon(Icons.add),
-          label: const Text('Add Your First Book'),
-          style: ElevatedButton.styleFrom(
-            foregroundColor: HColors.mainColor,
-            textStyle:
-                const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-          onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              isScrollControlled: true,
-              builder: (BuildContext context) {
-                return Padding(
-                  padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom,
-                  ),
-                  child: const AddBookBottomSheet(),
-                );
-              },
-            );
-          },
-        ),
+      body: ListView.builder(
+        itemCount: 3,
+        itemBuilder: (context, index) {
+          return BookCard(
+            category: 'asd',
+            bookName: 'asdsa',
+            summury:
+                'asdsasd asda sd asdasd asd asd asd asdasd asdad asdasdasd asd sd asd asd asd asdasssssssssssssssssssssssssssssssssssssssssssssss',
+            review: 'asdasdasd',
+            onDelete: () {},
+            onEdit: () {},
+          );
+        },
       ),
     );
   }

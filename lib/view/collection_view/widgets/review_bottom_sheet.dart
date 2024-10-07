@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../utils/contants/sizes.dart';
 
 class ReviewBottomaSheet extends StatelessWidget {
-  const ReviewBottomaSheet({super.key});
+  const ReviewBottomaSheet({super.key, required this.review});
+  final String review;
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +15,9 @@ class ReviewBottomaSheet extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
-              'Your Review',
-              style: TextStyle(
+            Text(
+              review,
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w900,
               ),
