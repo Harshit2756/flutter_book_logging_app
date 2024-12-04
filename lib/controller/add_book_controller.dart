@@ -3,6 +3,8 @@ import 'package:book_logging_app/data/model/category_model.dart';
 import 'package:flutter/material.dart';
 
 import '../data/model/book_model.dart';
+import '../data/model/local_book_model.dart';
+import '../data/service/hive_service.dart';
 import '../data/service/network_api_services.dart';
 
 class AddBookController extends ChangeNotifier {
@@ -11,6 +13,7 @@ class AddBookController extends ChangeNotifier {
   }
 
   NetworkApiService apiServices;
+  HiveService hiveService = HiveService();
   List<CategoryModel> categories = [];
   List<BookModel> books = [];
   CategoryModel? selectedCategory;
@@ -64,7 +67,15 @@ class AddBookController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void saveBook() {
-    // Save book entry in local storage
+  Future<void> saveBook() async {
+    if (selectedBook != null && reviewController.text.isNotEmpty) {
+      final localBook = LocalBookModel()
+        ..title = selectedBook!.title
+        ..category = selectedCategory!.category!
+        ..summary = selectedBook!.summary
+        ..review = reviewController.text;
+      hiveService.addBookToCollection(0, localBook);
+      notifyListeners();
+    }
   }
 }
